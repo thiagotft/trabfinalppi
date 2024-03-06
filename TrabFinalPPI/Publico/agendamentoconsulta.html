@@ -57,7 +57,8 @@
         form input[type="text"],
         form input[type="number"],
         form select,
-        form input[type="date"] {
+        form input[type="date"],
+        form input[type="email"] {
             width: 100%;
             padding: 10px;
             margin-bottom: 10px;
@@ -78,30 +79,65 @@
         form input[type="submit"]:hover {
             background-color: #00b386;
         }
+        .inline {
+         display: flex;
+         flex-direction: row;
+         margin: 5px;
+         align-items: baseline;
+       }
+       span{
+       color: red;
+       font-size: smaller;
+       }
+       
     </style>
 </head>
 
 <body>
     <div id="header"></div>
-    <form action="#" method="post">
+    <form name="cadastro" action="cadastrarcons.php" method="post">
         <div>
             <h2>Agendamento de Consulta</h2>
         </div>
         <div>
-            <label for="especialidade">Especialidade Médica:</label>
+            <div><label for="especialidade">Especialidade Médica:</label>
             <select id="especialidade" name="especialidade" required>
-                <option value="teste">Teste</option>
-            </select><br>
+                <option value="">Selecione</option>
+                <option value="clinicogeral">Clínico Geral</option>
+                <option value="oncologista">Oncologista</option>
+                <option value="urologista">Urologista</option>
+                <option value="ginecologista">Ginecologista</option>
+                <option value="ortopedista">Ortopedista</option>
+                <option value="cardiologista">Cardiologista</option>
+                <option value="psiquiatra">Psiquiatra</option>
+                <option value="neurologista">Neurologista</option>
+            </select>
+            <span id="span1"></span>
+        </div>
 
-            <label for="medico">Nome do Médico Especialista:</label>
-            <select id="medico" name="medico" required>
-            </select><br>
+            <div><label for="medico">Nome do médico:</label>
+                <select id="medico" name="medico" required>
+                    <option value="">Selecione</option>
+                    <option value="cesarfilho">Dr. Cesar Filho</option>
+                    <option value="luciocastro">Dr. Lucio Castro</option>
+                    <option value="celsonogueira">Dr. Celso Nogueira</option>
+                    <option value="carlalopes">Dra. Carla Lopes</option>
+                    <option value="clarasilva">Dra. Clara Silva</option>
+                    <option value="carlosroberto">Dr. Carlos Roberto</option>
+                    <option value="lucianarezende">Dra. Luciana Rezende</option>
+                    <option value="elizalopes">Dra. Eliza Lopes</option>
+                </select>
+                <span id="span2"></span>
+            </div>
 
-            <label for="data">Data da Consulta:</label>
-            <input type="date" id="data" name="data" required><br>
+            <div><label for="data">Data da Consulta:</label>
+            <input type="date" id="data" name="data" required>
+            <span id="span3"></span>
+            </div>
 
-            <label for="horario">Horário Disponível:</label>
+            <div><label for="horario">Horário Disponível:</label>
             <select id="horario" name="horario" required>
+                <option value="">Selecione</option>
                 <option value="8">8:00</option>
                 <option value="9">9:00</option>
                 <option value="10">10:00</option>
@@ -112,26 +148,97 @@
                 <option value="15">15:00</option>
                 <option value="16">16:00</option>
                 <option value="17">17:00</option>
-            </select><br>
+            </select>
+            <span id="span4"></span>
+            </div>
 
             <h3>Dados Pessoais:</h3>
-            <label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required><br>
+            
+            <div><label for="nome">Nome:</label>
+            <input type="text" id="nome" name="nome" required>
+            <span id="span5"></span>
+            </div>
 
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required><br>
+            <div><label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+            <span id="span6"></span> 
+            </div>
 
-            <label for="sexo">Sexo:</label><br>
-            <input type="radio" id="sexo-m" name="sexo" value="masculino" required>
-            <label for="sexo-m">Masculino</label>
-            <input type="radio" id="sexo-f" name="sexo" value="feminino" required>
-            <label for="sexo-f">Feminino</label><br>
-
-            <input type="submit" value="Agendar">
+            <div><label for="sexo">Sexo:</label>
+            
+            <div class="inline"><input type="radio" id="sexom" name="sexo" value="masculino" required>
+            <label for="sexom">Masculino</label></div>
+            
+            <div class="inline"><input type="radio" id="sexof" name="sexo" value="feminino" required>
+            <label for="sexof">Feminino</label></div>
+            <span id="span7"></span>
+            </div>
+            
+            <div><input type="submit" value="Agendar"></div>
+        
         </div>
+    
     </form>
+    
     <div id="footer"></div>
-    <script src="/TrabFinalPPI/styleGlobal/footerAndHeader.js"></script>
+    <script src="/TrabFinalPPI/styleGlobal/footerAndHeader.js"> </script>
+    <script>
+    document.forms.cadastro.onsubmit = validaCad;
+        function validaCad(e){
+            let form = e.target;
+            let v = true;
+
+            const spanEspecialidade = document.getElementById("span1");
+            const spanMedico = document.getElementById("span2");
+            const spanData = document.getElementById("span3");
+            const spanHora = document.getElementById("span4");
+            const spanNome = document.getElementById("span5");
+            const spanEmail = document.getElementById("span6");
+            const spanSexo = document.getElementById("span7");
+
+            spanEspecialidade.textContent = "";
+            spanMedico.textContent = "";
+            spanData.textContent = "";
+            spanHora.textContent = "";
+            spanNome.textContent = "";
+            spanEmail.textContent = "";
+            spanSexo.textContent = "";
+
+            if(form.especialidade.value === "") {
+                spanEspecialidade.textContent = 'Especialidade deve ser selecionada';
+                v = false;
+            }
+            if(form.medico.value === "") {
+                spanMedico.textContent = 'Medico deve ser selecionada';
+                v = false;
+            }
+            if(form.data.value === "") {
+                spanData.textContent = 'Data deve ser selecionada';
+                v = false;
+            }
+            if(form.horario.value === "") {
+                spanHora.textContent = 'Horario deve ser selecionada';
+                v = false;
+            }
+
+            if(form.nome.value === "") {
+                spanNome.textContent = 'Nome deve ser preenchido';
+                v = false;
+            }
+            if(form.email.value === "") {
+                spanEmail.textContent = 'Email deve ser preenchido';
+                v = false;
+            }
+            if(!form.sexom.checked && !form.sexof.checked ) {
+                spanSexo.textContent = 'Sexo deve ser selecionado';
+                v = false;
+            }
+            if(!v)
+            e.preventDefault();
+        }
+        </script>
+    
+        
 </body>
 
 </html>
