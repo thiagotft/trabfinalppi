@@ -161,7 +161,7 @@
 
             <div><label for="email">E-mail:</label>
             <input type="email" id="email" name="email" required>
-            <span id="span6"></span> 
+            <span id="span6"></span>
             </div>
 
             <div><label for="sexo">Sexo:</label>
@@ -174,7 +174,7 @@
             <span id="span7"></span>
             </div>
             
-            <div><input type="submit" value="Agendar"></div>
+            <div><input type="submit" value="agendar" id="agendar"></div>
         
         </div>
     
@@ -183,61 +183,59 @@
     <div id="footer"></div>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeader.js"> </script>
     <script>
-    document.forms.cadastro.onsubmit = validaCad;
-        function validaCad(e){
-            let form = e.target;
-            let v = true;
+    document.addEventListener("DOMContentLoaded", function () {
+        let agendarBtn = document.querySelector("#agendar");
+       
+        let especialidade = document.querySelector("#especialidade");
+        let medico = document.querySelector("#medico");
+        let data = document.querySelector("#data");
+        let horario = document.querySelector("#horario");
+        let nome = document.querySelector("#nome");
+        let email = document.querySelector("#email");
+        let sexom = document.querySelector("#sexom");
+        let sexof = document.querySelector("#sexof");
+        
+        let span1 = document.querySelector("#span1");
+        let span2 = document.querySelector("#span2");
+        let span3 = document.querySelector("#span3");
+        let span4 = document.querySelector("#span4");
+        let span5 = document.querySelector("#span5");
+        let span6 = document.querySelector("#span6");
+        let span7 = document.querySelector("#span7");
+       
 
-            const spanEspecialidade = document.getElementById("span1");
-            const spanMedico = document.getElementById("span2");
-            const spanData = document.getElementById("span3");
-            const spanHora = document.getElementById("span4");
-            const spanNome = document.getElementById("span5");
-            const spanEmail = document.getElementById("span6");
-            const spanSexo = document.getElementById("span7");
-
-            spanEspecialidade.textContent = "";
-            spanMedico.textContent = "";
-            spanData.textContent = "";
-            spanHora.textContent = "";
-            spanNome.textContent = "";
-            spanEmail.textContent = "";
-            spanSexo.textContent = "";
-
-            if(form.especialidade.value === "") {
-                spanEspecialidade.textContent = 'Especialidade deve ser selecionada';
-                v = false;
-            }
-            if(form.medico.value === "") {
-                spanMedico.textContent = 'Medico deve ser selecionada';
-                v = false;
-            }
-            if(form.data.value === "") {
-                spanData.textContent = 'Data deve ser selecionada';
-                v = false;
-            }
-            if(form.horario.value === "") {
-                spanHora.textContent = 'Horario deve ser selecionada';
-                v = false;
-            }
-
-            if(form.nome.value === "") {
-                spanNome.textContent = 'Nome deve ser preenchido';
-                v = false;
-            }
-            if(form.email.value === "") {
-                spanEmail.textContent = 'Email deve ser preenchido';
-                v = false;
-            }
-            if(!form.sexom.checked && !form.sexof.checked ) {
-                spanSexo.textContent = 'Sexo deve ser selecionado';
-                v = false;
-            }
-            if(!v)
-            e.preventDefault();
-        }
-        </script>
-    
+        agendarBtn.addEventListener("click", () => {
+                if (especialidade.value === "") {
+                    let html = "Selecione uma especionalidade";
+                    span1.innerHTML = html;
+                }
+                if (medico.value === "") {
+                    let html1 = "Selecione um médico";
+                    span2.innerHTML = html1;
+                }
+                if (data.value === "") {
+                    let html2 = "Selecione uma data";
+                    span3.innerHTML = html2;
+                }
+                if (horario.value === "") {
+                    let html3 = "Selecione um horário";
+                    span4.innerHTML = html3;
+                }
+                if (nome.value === "") {
+                    let html4 = "Insira seu nome";
+                    span5.innerHTML = html4;
+                }
+                if (email.value === "") {
+                    let html5 = "Insira seu email";
+                    span6.innerHTML = html5;
+                }
+                if (!sexom.checked && !sexof.checked) {
+                    let html6 = "Selecione um sexo";
+                    span7.innerHTML = html6;
+                }
+            });
+        });
+</script>
         
 </body>
 
