@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     let span9 = document.querySelector("#span9");
     let span10 = document.querySelector("#span10");
 
-    submitBtn.addEventListener("click", (event) => {
+    submitBtn.addEventListener("click", () => {
         if (inputNome.value === "") {
             let html0 = "Insira seu nome";
             span0.innerHTML = html0;
