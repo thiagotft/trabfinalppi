@@ -5,115 +5,30 @@
     <meta charset="UTF-8">
     <title>Clínica CTR - Agendamento de Consulta</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        .container {
-            display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            padding: 20px 0;
-        }
-
-        article {
-            background-color: #fff;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        h2 {
-            color: rgb(32, 32, 32);
-            font-size: 20px;
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: rgb(32, 32, 32);
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        footer {
-            background-color: rgb(0, 255, 136);
-            color: #fff;
-            text-align: center;
-            padding: 20px 0;
-        }
-
-        form {
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-
-        form label {
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        form input[type="text"],
-        form input[type="number"],
-        form select,
-        form input[type="date"],
-        form input[type="email"] {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            width: calc(100% - 22px);
-        }
-
-        form input[type="submit"] {
-            background-color: rgb(0, 0, 0);
-            color: #fff;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        form input[type="submit"]:hover {
-            background-color: #00b386;
-        }
-        .inline {
-         display: flex;
-         flex-direction: row;
-         margin: 5px;
-         align-items: baseline;
-       }
-       span{
-       color: red;
-       font-size: smaller;
-       }
-       
-    </style>
+    <link rel="stylesheet" href="/TrabFinalPPI/Publico/css/styleAgendConsult.css" type="text/css" media="screen">
 </head>
 
 <body>
     <div id="header"></div>
-    <form name="cadastro" action="cadastrarcons.php" method="post">
+    <form name="cadastro" action="" method="post">
         <div>
             <h2>Agendamento de Consulta</h2>
         </div>
         <div>
             <div><label for="especialidade">Especialidade Médica:</label>
-            <select id="especialidade" name="especialidade" required>
-                <option value="">Selecione</option>
-                <option value="clinicogeral">Clínico Geral</option>
-                <option value="oncologista">Oncologista</option>
-                <option value="urologista">Urologista</option>
-                <option value="ginecologista">Ginecologista</option>
-                <option value="ortopedista">Ortopedista</option>
-                <option value="cardiologista">Cardiologista</option>
-                <option value="psiquiatra">Psiquiatra</option>
-                <option value="neurologista">Neurologista</option>
-            </select>
-            <span id="span1"></span>
-        </div>
+                <select id="especialidade" name="especialidade" required>
+                    <option value="">Selecione</option>
+                    <option value="clinicogeral">Clínico Geral</option>
+                    <option value="oncologista">Oncologista</option>
+                    <option value="urologista">Urologista</option>
+                    <option value="ginecologista">Ginecologista</option>
+                    <option value="ortopedista">Ortopedista</option>
+                    <option value="cardiologista">Cardiologista</option>
+                    <option value="psiquiatra">Psiquiatra</option>
+                    <option value="neurologista">Neurologista</option>
+                </select>
+                <span id="span1"></span>
+            </div>
 
             <div><label for="medico">Nome do médico:</label>
                 <select id="medico" name="medico" required>
@@ -131,112 +46,61 @@
             </div>
 
             <div><label for="data">Data da Consulta:</label>
-            <input type="date" id="data" name="data" required>
-            <span id="span3"></span>
+                <input type="date" id="data" name="data" required>
+                <span id="span3"></span>
             </div>
 
             <div><label for="horario">Horário Disponível:</label>
-            <select id="horario" name="horario" required>
-                <option value="">Selecione</option>
-                <option value="8">8:00</option>
-                <option value="9">9:00</option>
-                <option value="10">10:00</option>
-                <option value="11">11:00</option>
-                <option value="12">12:00</option>
-                <option value="13">13:00</option>
-                <option value="14">14:00</option>
-                <option value="15">15:00</option>
-                <option value="16">16:00</option>
-                <option value="17">17:00</option>
-            </select>
-            <span id="span4"></span>
+                <select id="horario" name="horario" required>
+                    <option value="">Selecione</option>
+                    <option value="8">8:00</option>
+                    <option value="9">9:00</option>
+                    <option value="10">10:00</option>
+                    <option value="11">11:00</option>
+                    <option value="12">12:00</option>
+                    <option value="13">13:00</option>
+                    <option value="14">14:00</option>
+                    <option value="15">15:00</option>
+                    <option value="16">16:00</option>
+                    <option value="17">17:00</option>
+                </select>
+                <span id="span4"></span>
             </div>
 
             <h3>Dados Pessoais:</h3>
-            
+
             <div><label for="nome">Nome:</label>
-            <input type="text" id="nome" name="nome" required>
-            <span id="span5"></span>
+                <input type="text" id="nome" name="nome" required>
+                <span id="span5"></span>
             </div>
 
             <div><label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-            <span id="span6"></span>
+                <input type="email" id="email" name="email" required>
+                <span id="span6"></span>
             </div>
 
             <div><label for="sexo">Sexo:</label>
-            
-            <div class="inline"><input type="radio" id="sexom" name="sexo" value="masculino" required>
-            <label for="sexom">Masculino</label></div>
-            
-            <div class="inline"><input type="radio" id="sexof" name="sexo" value="feminino" required>
-            <label for="sexof">Feminino</label></div>
-            <span id="span7"></span>
+
+                <div class="inline"><input type="radio" id="sexom" name="sexo" value="masculino" required>
+                    <label for="sexom">Masculino</label>
+                </div>
+
+                <div class="inline"><input type="radio" id="sexof" name="sexo" value="feminino" required>
+                    <label for="sexof">Feminino</label>
+                </div>
+                <span id="span7"></span>
             </div>
-            
+
             <div><input type="submit" value="agendar" id="agendar"></div>
-        
+
         </div>
-    
+
     </form>
-    
+
     <div id="footer"></div>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeader.js"> </script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        let agendarBtn = document.querySelector("#agendar");
-       
-        let especialidade = document.querySelector("#especialidade");
-        let medico = document.querySelector("#medico");
-        let data = document.querySelector("#data");
-        let horario = document.querySelector("#horario");
-        let nome = document.querySelector("#nome");
-        let email = document.querySelector("#email");
-        let sexom = document.querySelector("#sexom");
-        let sexof = document.querySelector("#sexof");
-        
-        let span1 = document.querySelector("#span1");
-        let span2 = document.querySelector("#span2");
-        let span3 = document.querySelector("#span3");
-        let span4 = document.querySelector("#span4");
-        let span5 = document.querySelector("#span5");
-        let span6 = document.querySelector("#span6");
-        let span7 = document.querySelector("#span7");
-       
+    <script src="/TrabFinalPPI/Publico/script/errorMessage.js"></script>
 
-        agendarBtn.addEventListener("click", () => {
-                if (especialidade.value === "") {
-                    let html = "Selecione uma especionalidade";
-                    span1.innerHTML = html;
-                }
-                if (medico.value === "") {
-                    let html1 = "Selecione um médico";
-                    span2.innerHTML = html1;
-                }
-                if (data.value === "") {
-                    let html2 = "Selecione uma data";
-                    span3.innerHTML = html2;
-                }
-                if (horario.value === "") {
-                    let html3 = "Selecione um horário";
-                    span4.innerHTML = html3;
-                }
-                if (nome.value === "") {
-                    let html4 = "Insira seu nome";
-                    span5.innerHTML = html4;
-                }
-                if (email.value === "") {
-                    let html5 = "Insira seu email";
-                    span6.innerHTML = html5;
-                }
-                if (!sexom.checked && !sexof.checked) {
-                    let html6 = "Selecione um sexo";
-                    span7.innerHTML = html6;
-                }
-            });
-        });
-</script>
-        
 </body>
 
 </html>
