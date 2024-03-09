@@ -1,16 +1,23 @@
 .container {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    justify-content: space-evenly;
+    flex-direction: column;
     padding: 20px 0;
+    align-items: center;
+
+    
 }
 
 article {
+    flex: 1 1 150px;
     background-color: #fff;
     padding: 20px;
     margin-bottom: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 800px;
+    
+    
 }
 
 h2 {
@@ -23,4 +30,7 @@ p {
     color: rgb(32, 32, 32);
     font-size: 16px;
     line-height: 1.5;
+}
+article a {
+    text-decoration: none;
 }
