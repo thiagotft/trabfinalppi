@@ -19,8 +19,8 @@ document.addEventListener("DOMContentLoaded", function () {
         }
         if (email.value !== "" && senha.value !== "") {
            
-            if (email.value === "exemplo@email.com" && senha.value === "senha123") {
-                alert("Login bem-sucedido!"); 
+            if (email.value === "xxxxxx@xxx.com" && senha.value === "xxxxx") {
+                alert("Login correto!"); 
             } else {
                 alert("Login e/ou senha incorretos!"); 
             }
