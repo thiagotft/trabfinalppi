@@ -1,4 +1,4 @@
-CREATE TABLE base_endajax
+CREATE TABLE endereco
 (
     cep varchar(15),
     logradouro varchar(30),
