@@ -11,10 +11,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     $sql = <<<SQL
-            SELECT f.SenhaHash, p.Email
-            FROM Funcionário f
-            JOIN Pessoa p ON f.PessoaId = p.Id
-            WHERE p.Email = ?
+            SELECT f.senhahash
+            FROM funcionario f
+            JOIN pessoa p ON f.codigo = p.codigo
+            WHERE p.email = :email
             SQL;
     
     $stmt = $pdo->prepare($sql);
