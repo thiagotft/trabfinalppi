@@ -15,17 +15,6 @@ class Endereco
     $this->estado = $estado;
   }
 
-  public function validaCEP($cep){
-    $url = "https://viacep.com.br/ws/{$cep}/json/";
-    $json = file_get_contents($url);
-    $data = json_decode($json);
-
-    $endereco = new Endereco($data->cep, $data->logradouro, $data->localidade, $data->uf);
-
-    header('Content-Type: application/json; charset=utf-8');
-    echo json_encode($endereco);
-  }
-
   public function AddToDatabase($pdo)
   {
     try {
@@ -88,7 +77,4 @@ class Endereco
       exit('Falha inesperada: ' . $e->getMessage());
     }
   }
-}
-$endereco = new Endereco('', '', '', '');
-$cep = $_GET['cep'];
-$endereco->validaCEP($cep);
+} 

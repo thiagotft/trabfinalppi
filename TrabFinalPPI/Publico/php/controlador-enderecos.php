@@ -1,7 +1,8 @@
 <?php
 
-require "TrabFinalPPI/connection.php";
-require "busca-endereco.php";
+require "../../connection.php";
+require "endereco.php";
+
 
 // resgata a ação a ser executada
 $acao = $_GET['acao'];
@@ -17,12 +18,9 @@ switch ($acao) {
     $logradouro = $_POST["logradouro"] ?? "";
     $cidade = $_POST["cidade"] ?? "";
     $estado = $_POST["estado"] ?? "";
-  
     $novoEndereco = new Endereco($cep, $logradouro, $cidade, $estado);
-
-    
     $novoEndereco->AddToDatabase($pdo);
-    header("location: index.html");
+    header("location: ../endereco.html");
     break;
 
   //-----------------------------------------------------------------
@@ -35,14 +33,10 @@ switch ($acao) {
   //-----------------------------------------------------------------
   case "listarEnderecos":
     $arrayEnderecos = Endereco::GetFirst30($pdo);
-    
-    
-    include "Restrito/mostrar-enderecos.php";
+    include "../../Restrito/mostrar-endereco.php";
     break;
 
   //-----------------------------------------------------------------
- 
-
   default:
     exit("Ação não disponível");
 }

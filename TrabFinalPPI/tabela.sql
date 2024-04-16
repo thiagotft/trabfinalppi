@@ -1,7 +1,8 @@
 CREATE TABLE endereco
 (
-    cep varchar(15),
-    logradouro varchar(30),
+    id int PRIMARY KEY auto_increment,
+    cep varchar(15) UNIQUE,
+    logradouro varchar(50),
     cidade varchar(30),
     estado varchar(30)
 

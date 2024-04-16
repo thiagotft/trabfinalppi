@@ -25,11 +25,12 @@
         <th>Estado</th>
       </tr>
 
-      <?php
-      foreach ($arrayEnderecos as $endereco) {
+       <?php
+      
+        foreach ($arrayEnderecos as $endereco) {
         echo <<<HTML
           <tr>
-            <td><a href="/TrabFinalPPI/Publico/php/controlador-enderecos.php?acao=excluirEndereco&cep=$endereco->cep">Excluir</a></td> 
+            <td><a href="/Publico/php/controlador-enderecos.php?acao=excluirEndereco&cep=$endereco->cep">Excluir</a></td> 
             <td>$endereco->cep</td> 
             <td>$endereco->logradouro</td>
             <td>$endereco->cidade</td>
