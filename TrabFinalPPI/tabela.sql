@@ -48,7 +48,7 @@ CREATE TABLE medico
     especialidade varchar(30),
     crm varchar(10),
     codigo int PRIMARY KEY,
-    FOREIGN KEY (codigo) REFERENCES paciente(codigo)
+    FOREIGN KEY (codigo) REFERENCES funcionario(codigo)
 
 ) ENGINE=InnoDB;
 

@@ -1,49 +1,71 @@
+<?php
+require '../connection.php';
+$pdo = getConnection();
+try {
+  $sql = <<<SQL
+  SELECT cep, logradouro, cidade, estado
+  FROM endereco
+  LIMIT 30
+  SQL;
+    $stmt = $pdo->query($sql);
+} catch (Exception $e) {
+    exit('Ocorreu uma falha ao listar os endereços: ' . $e->getMessage());
+}
+?>
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="/TrabFinalPPI/Restrito/css/styleList.css" type="text/css" media="screen">
-    <title>Lista de Enderecos</title>
+    <title>Listagem de Endereços Cadastrados</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+  <title>Lista de Endereços</title>
+
 </head>
 
 <body>
     <div id="header"></div>
     <div id="conteudo">
-    
-    <h3>Endereços Cadastrados</h3>
-    <div class="table-responsive">
-    <table class="table table-striped table-hover">
-      <tr>
-        <th></th>
-        <th>CEP</th>
-        <th>Logradouro</th>
-        <th>Cidade</th>
-        <th>Estado</th>
-      </tr>
-
-       <?php
-        foreach ($arrayEnderecos as $endereco) {
-        echo <<<HTML
+        <h3>Endereços Cadastrados</h3>
+        <div class="table-responsive">
+        <table class="table table-striped table-hover">
           <tr>
-            <td><a href="/Publico/php/controlador-enderecos.php?acao=excluirEndereco&cep=$endereco->cep">Excluir</a></td> 
-            <td>$endereco->cep</td> 
-            <td>$endereco->logradouro</td>
-            <td>$endereco->cidade</td>
-            <td>$endereco->estado</td>
-          </tr>      
-        HTML;
-      }
-      ?>
+            <th></th>
+            <th>CEP</th>
+            <th>Logradouro</th>
+            <th>Cidade</th>
+            <th>Estado</th>
+          </tr>
+          <?php
+          while($row = $stmt->fetch()){
+            $cep = htmlspecialchars($row['cep']);
+            $logradouro = htmlspecialchars($row['logradouro']);
+            $cidade = htmlspecialchars($row['cidade']);
+            $estado = htmlspecialchars($row['estado']);
 
-    </table>
-    </div>
-    </div>
+            echo <<<HTML
+              <tr>
+              <th scope="row"></th>
+              <td>$cep</td>
+              <td>$logradouro</td>
+              <td>$cidade</td>
+              <td>$estado</td>
+            </tr>
+            HTML;
+          }
+          ?>
+        </table>
+        </div>
     <div id="footer"></div>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeaderPrivate.js"></script>
-</body>
-
+  </body>
 </html>

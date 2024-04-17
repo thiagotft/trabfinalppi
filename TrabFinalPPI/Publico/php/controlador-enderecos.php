@@ -3,8 +3,6 @@
 require "../../connection.php";
 require "endereco.php";
 
-
-
 // resgata a ação a ser executada
 $acao = $_GET['acao'];
 
@@ -21,20 +19,7 @@ switch ($acao) {
     $estado = $_POST["estado"] ?? "";
     $novoEndereco = new Endereco($cep, $logradouro, $cidade, $estado);
     $novoEndereco->AddToDatabase($pdo);
-    header("location: controlador-enderecos.php?acao=listarEnderecos");
-    break;
-
-  //-----------------------------------------------------------------
-  case "excluirEndereco":
-    $cep = $_GET["cep"] ?? "";
-    Endereco::RemoveByCEP($pdo, $cep);
-    header("location: controlador-enderecos.php?acao=listarEnderecos");
-    break;
-
-  //-----------------------------------------------------------------
-  case "listarEnderecos":
-    $arrayEnderecos = Endereco::GetFirst30($pdo);
-    include "../../Restrito/mostrar-endereco.php";
+    header("location: ../endereco.html");
     break;
 
   //-----------------------------------------------------------------
