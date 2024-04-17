@@ -22,7 +22,7 @@ $pdo = getConnection();
 
     <div id="conteudo">
     <form
-        action="../Restrito/cadFunc2.php"
+        action="../Restrito/cadastraFuncionario.php"
         method="POST"
         id="form"
         class="px-5 pb-5"
@@ -154,7 +154,8 @@ $pdo = getConnection();
         </div>
 
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="isMedico" />
+        <input type="hidden" name="isMedico" value="off">
+  <input type="checkbox" class="form-check-input" id="isMedico" name="isMedico" value="on" onchange="checkIsMedico()">
           <label class="form-check-label" for="isMedico">Médico</label>
         </div>
 
@@ -194,28 +195,26 @@ $pdo = getConnection();
     <script src="/TrabFinalPPI/Restrito/Scripts/errorMessageCadFunc.js"></script>
 </body>
 <script>
-    var checkboxMedico = document.getElementById("isMedico");
-    var medicForms = document.getElementById("medicForms");
-    var medicActionPhp = document.getElementById("form");
-    var inputEspecialidade = document.getElementById("inputEspecialidade");
-    var inputCrm = document.getElementById("inputCrm");
-    var inputCep = document.getElementById("inputCep");
 
     function checkIsMedico() {
-      if (checkboxMedico.checked) {
-        inputEspecialidade.required = true;
-        inputCrm.required = true;
-        medicForms.style["display"] = "";
-        medicActionPhp.action =
-        "../TrabFinalPPI/Restrito/cadFunc2.php";
-      } else {
-        inputEspecialidade.required = false;
-        inputCrm.required = false;
-        medicForms.style["display"] = "none";
-        medicActionPhp.action =
-          "../TrabFinalPPI/Restrito/cadFunc2.php";
-      }
-    }
+  var checkboxMedico = document.getElementById('checkboxMedico');
+  var inputEspecialidade = document.getElementById('inputEspecialidade');
+  var inputCrm = document.getElementById('inputCrm');
+  var medicForms = document.getElementById('medicForms');
+  var medicActionPhp = document.getElementById('medicActionPhp');
+
+  if (checkboxMedico.checked) {
+    inputEspecialidade.required = true;
+    inputCrm.required = true;
+    medicForms.style["display"] = "";
+    medicActionPhp.action = "../TrabFinalPPI/Restrito/cadastroMedico.php";
+  } else {
+    inputEspecialidade.required = false;
+    inputCrm.required = false;
+    medicForms.style["display"] = "none";
+    medicActionPhp.action = "../TrabFinalPPI/Restrito/cadastroFuncionario.php";
+  }
+}
   </script>
 
 </html>

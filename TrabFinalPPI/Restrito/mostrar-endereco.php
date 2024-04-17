@@ -26,7 +26,6 @@
       </tr>
 
        <?php
-      
         foreach ($arrayEnderecos as $endereco) {
         echo <<<HTML
           <tr>
