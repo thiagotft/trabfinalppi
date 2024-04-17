@@ -32,10 +32,10 @@ CREATE TABLE funcionario
 
 ) ENGINE=InnoDB;
 
-CREATE TABLE paciente 
+CREATE TABLE Paciente 
 (
-    peso float,
-    altura int,
+    peso decimal(5,2) ,
+    altura decimal(3,2),
     tiposanguineo varchar(1),
     codigo int PRIMARY KEY,
     FOREIGN KEY (codigo) REFERENCES pessoa(codigo) 
@@ -43,7 +43,7 @@ CREATE TABLE paciente
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE medico
+CREATE TABLE Medico
 (
     especialidade varchar(30),
     crm varchar(10),
@@ -58,7 +58,7 @@ CREATE TABLE agenda
     data_ag date,
     horario time,
     nome varchar(50),
-    sexo varchar(14) UNIQUE,
+    sexo varchar(14),
     email varchar(50) UNIQUE,
     codigomedico int,
     FOREIGN KEY (codigomedico) REFERENCES medico(codigo)
