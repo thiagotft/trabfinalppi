@@ -20,7 +20,7 @@ try {
     $pdo->beginTransaction();
     
     $sqlPessoa = <<<SQL
-    INSERT INTO Pessoa (nome, sexo, email, telefone, cep, logradouro, cidade, estado)
+    INSERT INTO pessoa (nome, sexo, email, telefone, cep, logradouro, cidade, estado)
     VALUES (?, ?, ?, ?, ?, ?, ?, ?)
     SQL;
     $stmt = $pdo->prepare($sqlPessoa);
@@ -34,7 +34,7 @@ try {
     }
     $lastInsertedId = $pdo->lastInsertId();
     $sqlFuncionario = <<<SQL
-    INSERT INTO Funcionario (codigo, dataContrato, salario, senhaHash)
+    INSERT INTO funcionario (codigo, dataContrato, salario, senhaHash)
     VALUES (?, ?, ?, ?)
     SQL;
     $stm = $pdo->prepare($sqlFuncionario);
@@ -49,7 +49,7 @@ try {
         $especialidade = htmlspecialchars($_POST['inputEspecialidade'] ?? '');
         $crm = htmlspecialchars($_POST['inputCrm'] ?? '');
         $sqlMedico = <<<SQL
-        INSERT INTO Medico (codigo, especialidade, crm)
+        INSERT INTO medico (codigo, especialidade, crm)
         VALUES (?, ?, ?)
         SQL;
         $stm = $pdo->prepare($sqlMedico);

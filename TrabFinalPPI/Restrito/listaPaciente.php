@@ -7,7 +7,7 @@ try {
     SELECT PE.codigo, PE.nome, PE.sexo, PE.email, PE.telefone, 
     PE.cep, PE.logradouro, PE.cidade, PE.estado, 
     PA.peso, PA.altura, PA.tipoSanguineo
-    FROM Pessoa AS PE, Paciente AS PA
+    FROM pessoa AS PE, paciente AS PA
     WHERE PE.codigo = PA.codigo
     SQL;
 

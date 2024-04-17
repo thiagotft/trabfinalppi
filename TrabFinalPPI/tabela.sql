@@ -12,7 +12,7 @@ CREATE TABLE pessoa
 (
    codigo int PRIMARY KEY auto_increment,
    nome varchar(50),
-   sexo varchar(14) UNIQUE,
+   sexo varchar(14),
    email varchar(50) UNIQUE,
    telefone varchar(15),
    cep varchar(15),
@@ -32,7 +32,7 @@ CREATE TABLE funcionario
 
 ) ENGINE=InnoDB;
 
-CREATE TABLE Paciente 
+CREATE TABLE paciente 
 (
     peso decimal(5,2) ,
     altura decimal(3,2),
@@ -43,7 +43,7 @@ CREATE TABLE Paciente
 ) ENGINE=InnoDB;
 
 
-CREATE TABLE Medico
+CREATE TABLE medico
 (
     especialidade varchar(30),
     crm varchar(10),

@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Crie um novo objeto XMLHttpRequest
         var xhr = new XMLHttpRequest();
         // Configure a solicitação
-        xhr.open('POST', 'jsonMedicos.php', true);
+        xhr.open('POST', 'php/jsonMedicos.php', true);
         // Defina o cabeçalho da solicitação para enviar dados de formulário
         xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
         // Uma função a ser chamada quando a solicitação for bem-sucedida

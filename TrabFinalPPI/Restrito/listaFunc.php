@@ -6,7 +6,7 @@ try {
   SELECT PE.codigo, PE.nome, PE.sexo, PE.email, PE.telefone, 
   PE.cep, PE.logradouro, PE.cidade, PE.estado, 
   FC.codigo, FC.dataContrato, FC.salario
-  FROM Pessoa AS PE, Funcionario AS FC
+  FROM pessoa AS PE, funcionario AS FC
   WHERE PE.codigo = FC.codigo
   SQL;
     $stmt = $pdo->query($sql);
