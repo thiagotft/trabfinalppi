@@ -193,6 +193,7 @@ $pdo = getConnection();
     <script src="/TrabFinalPPI/Restrito/Scripts/checkMedico.js"></script>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeaderPrivate.js"></script>
     <script src="/TrabFinalPPI/Restrito/Scripts/errorMessageCadFunc.js"></script>
+    <script src="/TrabFinalPPI/Restrito/Scripts/busca-endereco.js"></script>
 </body>
 <script>
 

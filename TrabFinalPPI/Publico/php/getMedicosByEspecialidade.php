@@ -5,7 +5,11 @@ if (isset($_POST['especialidade'])) {
     $pdo = getConnection();
     $especialidade = $_POST['especialidade'];
 
-    $query = 'SELECT codigo,nome FROM medico WHERE especialidade = :especialidade';
+    $query = 'SELECT pessoa.nome, medico.codigo
+              FROM medico
+              JOIN funcionario ON medico.codigo = funcionario.codigo
+              JOIN pessoa ON funcionario.codigo = pessoa.codigo
+              WHERE medico.especialidade = :especialidade';
     $statement = $pdo->prepare($query);
     $statement->bindParam(':especialidade', $especialidade);
     $statement->execute();
@@ -15,5 +19,4 @@ if (isset($_POST['especialidade'])) {
 } else {
     echo json_encode([]);
 }
-
 

@@ -10,7 +10,7 @@
 
 <body>
     <div id="header"></div>
-    <form name="cadastro" action="" method="POST">
+    <form name="cadastro" action="../Publico/php/agenda.php" method="POST">
         <div>
             <h2>Agendamento de Consulta</h2>
         </div>
@@ -22,7 +22,7 @@
                        require '../connection.php';
                       
                        $pdo = getConnection();
-                       $query = 'SELECT especialidade FROM medico';
+                       $query = 'SELECT DISTINCT especialidade FROM medico';
                        $result = $pdo->query($query);
                        $rowCount = $result->rowCount();
                        if ($rowCount > 0) {
@@ -33,7 +33,7 @@
                            echo "<option>Nenhuma especialidade encontrada</option>";
                        }
                        
-
+ 
 
                     ?>
                 </select>
@@ -94,7 +94,7 @@
     <div id="footer"></div>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeader.js"> </script>
     <script src="/TrabFinalPPI/Publico/script/errorMessage.js"></script>
-    <script src="/TrabFinalPPI/Publico/script/jsonMedicos.js"></script>
+    <script src="../Publico/script/jsonMedicos.js"></script>
 
 
 

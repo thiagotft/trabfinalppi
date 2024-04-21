@@ -59,7 +59,7 @@ CREATE TABLE agenda
     horario time,
     nome varchar(50),
     sexo varchar(14),
-    email varchar(50) UNIQUE,
+    email varchar(50),
     codigomedico int,
     FOREIGN KEY (codigomedico) REFERENCES medico(codigo)
 

@@ -8,7 +8,7 @@ if (isset($_POST['data']) && isset($_POST['medico'])) {
     $data = $_POST['data'];
     $codigoMedico = $_POST['medico'];
     
-    $queryHorarios = 'SELECT horario FROM agenda WHERE codMedico = :codMedico AND data = :data';
+    $queryHorarios = 'SELECT horario FROM agenda WHERE codigomedico = :codMedico AND data_ag = :data';
     $statementHorarios = $pdo->prepare($queryHorarios);
     $statementHorarios->bindParam(':codMedico', $codigoMedico);
     $statementHorarios->bindParam(':data', $data);
