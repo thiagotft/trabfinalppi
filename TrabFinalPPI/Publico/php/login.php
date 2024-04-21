@@ -1,29 +1,57 @@
 <?php
-require '../connection.php';
+
+require '../../connection.php';
+
 $pdo = getConnection();
 
+
+
 $email = $_POST['email'];
+
 $password = $_POST['password'];
 
+
+
 $sql = <<<SQL
+
     SELECT f.senhahash
+
     FROM funcionario f
+
     JOIN pessoa p ON f.codigo = p.codigo
+
     WHERE p.email = :email
+
 SQL;
 
+
+
 $stmt = $pdo->prepare($sql);
+
 $stmt->execute([':email' => $email]);
 
+
+
 if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+
     $storedHash = $row['senhahash'];
+
     
+
     if (password_verify($password, $storedHash)) {
-        echo "Login realizado com sucesso.";
+
+	header ("Location: ../../Restrito/index.html");
+
     } else {
-        echo "Senha incorreta.";
+	header ("Location: ../../Publico/login.html");
+
     }
-} else {
-    echo "Usuário não encontrado.";
+
+} else {   
+	header ("Location: ../../Publico/login.html");
+
 }
+
+
+
 ?>
