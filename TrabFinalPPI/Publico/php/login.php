@@ -2,9 +2,12 @@
 require "TrabFinalPPI/connection.php";
 require '../connection.php';
 $pdo = getConnection();
+
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
     $password = $_POST['password'];
+    
     $sql = <<<SQL
             SELECT f.senhahash
             FROM funcionario f
