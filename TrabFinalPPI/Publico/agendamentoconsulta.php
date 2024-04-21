@@ -10,7 +10,7 @@
 
 <body>
     <div id="header"></div>
-    <form name="cadastro" action="" method="post">
+    <form name="cadastro" action="" method="POST">
         <div>
             <h2>Agendamento de Consulta</h2>
         </div>
@@ -18,51 +18,45 @@
             <div><label for="especialidade">Especialidade Médica:</label>
                 <select id="especialidade" name="especialidade" required>
                     <option value="">Selecione</option>
-                    <option value="clinicogeral">Clínico Geral</option>
-                    <option value="oncologista">Oncologista</option>
-                    <option value="urologista">Urologista</option>
-                    <option value="Pediatria">Pediatra</option>
-                    <option value="Ortopedia">Ortopedista</option>
-                    <option value="Cardiologia">Cardiologista</option>
-                    <option value="Dermatologia">Desmatologista</option>
-                    <option value="Neurologia">Neurologista</option>
+                    <?php
+                       require '../connection.php';
+                      
+                       $pdo = getConnection();
+                       $query = 'SELECT especialidade FROM medico';
+                       $result = $pdo->query($query);
+                       $rowCount = $result->rowCount();
+                       if ($rowCount > 0) {
+                           while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+                               echo "<option value =". $row['especialidade'] .">" . $row['especialidade'] . "</option>";
+                           }
+                       } else {
+                           echo "<option>Nenhuma especialidade encontrada</option>";
+                       }
+                       
+
+
+                    ?>
                 </select>
                 <span id="span1"></span>
             </div>
 
-            <div><label for="medico">Nome do médico:</label>
+            <div>
+                <label for="medico">Nome do médico:</label>
                 <select id="medico" name="medico" required>
-                    <option value="">Selecione</option>
-                    <option value="cesarfilho">Dr. Cesar Filho</option>
-                    <option value="luciocastro">Dr. Lucio Castro</option>
-                    <option value="celsonogueira">Dr. Celso Nogueira</option>
-                    <option value="carlalopes">Dra. Carla Lopes</option>
-                    <option value="clarasilva">Dra. Clara Silva</option>
-                    <option value="carlosroberto">Dr. Carlos Roberto</option>
-                    <option value="lucianarezende">Dra. Luciana Rezende</option>
-                    <option value="elizalopes">Dra. Eliza Lopes</option>
+                    
                 </select>
                 <span id="span2"></span>
             </div>
 
-            <div><label for="data">Data da Consulta:</label>
+            <div>
+                <label for="data">Data da Consulta:</label>
                 <input type="date" id="data" name="data" required>
                 <span id="span3"></span>
             </div>
 
             <div><label for="horario">Horário Disponível:</label>
                 <select id="horario" name="horario" required>
-                    <option value="">Selecione</option>
-                    <option value="8">8:00</option>
-                    <option value="9">9:00</option>
-                    <option value="10">10:00</option>
-                    <option value="11">11:00</option>
-                    <option value="12">12:00</option>
-                    <option value="13">13:00</option>
-                    <option value="14">14:00</option>
-                    <option value="15">15:00</option>
-                    <option value="16">16:00</option>
-                    <option value="17">17:00</option>
+                    
                 </select>
                 <span id="span4"></span>
             </div>
@@ -101,6 +95,7 @@
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeader.js"> </script>
     <script src="/TrabFinalPPI/Publico/script/errorMessage.js"></script>
     <script src="/TrabFinalPPI/Publico/script/jsonMedicos.js"></script>
+
 
 
 </body>
