@@ -4,7 +4,7 @@ require '../../connection.php';
 
 $pdo = getConnection();
 
-
+session_start();
 
 $email = $_POST['email'];
 
