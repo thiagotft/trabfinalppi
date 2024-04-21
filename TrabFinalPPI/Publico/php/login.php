@@ -1,6 +1,6 @@
 <?php
 require "TrabFinalPPI/connection.php";
-require '../connection.php';
+require "../../connection.php";
 $pdo = getConnection();
 
 
@@ -22,11 +22,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         
         if (password_verify($password, $storedHash)) {
             echo json_encode(['status' => 'success', 'message' => 'Login realizado com sucesso.']);
+            header("Location:listaAgend.html");
+    exit();
         } else {
             echo json_encode(['status' => 'error', 'message' => 'Senha incorreta.']);
         }
     } else {
         echo json_encode(['status' => 'error', 'message' => 'Usuário não encontrado.']);
     }
+header("Location:listaAgend.html");
+    exit();
 }
 ?>
