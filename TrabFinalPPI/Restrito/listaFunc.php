@@ -30,6 +30,7 @@ try {
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/TrabFinalPPI/Publico/css/styleEnd.css" type="text/css" media="screen">
   <title>Lista de Funcionários</title>
 
 </head>
@@ -40,7 +41,7 @@ try {
         <h2>
             Funcionarios cadastrados
         </h2>
-
+      <div class="table-responsive">  
       <table class="table table-striped table-info table-hover">
       <caption>
         Lista de dados dos funcionarios cadastrados
@@ -94,6 +95,8 @@ try {
         ?>
       </tbody>
     </table>
+    </div>
+    </div>
     <div id="footer"></div>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeaderPrivate.js"></script>
   </body>

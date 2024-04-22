@@ -28,6 +28,7 @@ try {
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="/TrabFinalPPI/Publico/css/styleEnd.css" type="text/css" media="screen">
   <title>Lista de Endereços</title>
 
 </head>
@@ -35,9 +36,9 @@ try {
 <body>
     <div id="header"></div>
     <div id="conteudo">
-        <h3>Endereços Cadastrados</h3>
+        <h2>Endereços Cadastrados</h2>
         <div class="table-responsive">
-        <table class="table table-striped table-hover">
+        <table class="table table-striped table-info table-hover">
           <tr>
             <th></th>
             <th>CEP</th>
@@ -65,6 +66,7 @@ try {
           ?>
         </table>
         </div>
+    </div>
     <div id="footer"></div>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeaderPrivate.js"></script>
   </body>
