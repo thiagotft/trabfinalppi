@@ -36,6 +36,7 @@ try {
         <h2>
             Lista de pacientes
         </h2>
+        <div class="table-responsive">
         <table class="table table-striped table-info table-hover">
 
             <thead>
@@ -90,6 +91,7 @@ try {
                 ?>
             </tbody>
         </table>
+        </div>
     </div>
     <div id="footer"></div>
     <script src="/TrabFinalPPI/styleGlobal/footerAndHeaderPrivate.js"></script>
