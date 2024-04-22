@@ -30,7 +30,7 @@ try {
       integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="/TrabFinalPPI/Publico/css/styleEnd.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="/TrabFinalPPI/Restrito/css/styleList.css" type="text/css" media="screen">
   <title>Lista de Funcionários</title>
 
 </head>

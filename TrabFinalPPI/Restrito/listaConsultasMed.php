@@ -1,4 +1,4 @@
-<?php
+<d?php
 session_start();
 require '../connection.php';
 
@@ -6,7 +6,7 @@ $pdo = getConnection();
 
 
 
-$email = $_SESSION['email']; // ObtÃ©m o email do usuÃ¡rio logado
+$email = $_SESSION['email']; 
 
 echo $email;
 
@@ -74,6 +74,7 @@ $stmt->execute([':email' => $email]);
 
         </h2>
 
+        <div class="table-responsive">
         <table class="table table-striped table-info table-hover">
 
 
@@ -114,7 +115,7 @@ $stmt->execute([':email' => $email]);
 
                 $data = htmlspecialchars($row['data_ag']);
 
-                $dataFormatada = date('d/m/Y', strtotime($data)); // Adicione esta linha
+                $dataFormatada = date('d/m/Y', strtotime($data)); 
 
                 $horario = htmlspecialchars($row['horario']);
 
@@ -132,7 +133,7 @@ $stmt->execute([':email' => $email]);
 
                      <td>$email</td>
 
-                     <td>$dataFormatada</td> <!-- Altere esta linha -->
+                     <td>$dataFormatada</td> 
 
                      <td>$horario</td>
 
@@ -149,7 +150,7 @@ $stmt->execute([':email' => $email]);
             </tbody>
 
         </table>
-
+     </div>
     </div>
 
     <div id="footer"></div>

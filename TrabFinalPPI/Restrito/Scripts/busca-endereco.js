@@ -12,7 +12,7 @@ async function buscaEndereco(cep) {
     }
 
     let form = document.querySelector("form");
-    form.inputLogradouro.value = endereco.rua;
+    form.inputLogradouro.value = endereco.logradouro;
     form.inputCidade.value = endereco.cidade;
     form.inputEstado.value = endereco.estado;
 }
