@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require '../connection.php';
 
 $pdo = getConnection();
@@ -8,7 +8,7 @@ $pdo = getConnection();
 
 $email = $_SESSION['email']; // ObtÃ©m o email do usuÃ¡rio logado
 
-
+echo $email;
 
 $sql = <<<SQL
 

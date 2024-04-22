@@ -1,3 +1,15 @@
+<?php
+session_start();
+require '../connection.php';
+
+$pdo = getConnection();
+
+
+
+$email = $_SESSION['email']; // ObtÃ©m o email do usuÃ¡rio logado
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

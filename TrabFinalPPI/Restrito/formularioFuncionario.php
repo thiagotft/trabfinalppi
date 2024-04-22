@@ -195,27 +195,4 @@ $pdo = getConnection();
     <script src="/TrabFinalPPI/Restrito/Scripts/errorMessageCadFunc.js"></script>
     <script src="/TrabFinalPPI/Restrito/Scripts/busca-endereco.js"></script>
 </body>
-<script>
-
-    function checkIsMedico() {
-  var checkboxMedico = document.getElementById('checkboxMedico');
-  var inputEspecialidade = document.getElementById('inputEspecialidade');
-  var inputCrm = document.getElementById('inputCrm');
-  var medicForms = document.getElementById('medicForms');
-  var medicActionPhp = document.getElementById('medicActionPhp');
-
-  if (checkboxMedico.checked) {
-    inputEspecialidade.required = true;
-    inputCrm.required = true;
-    medicForms.style["display"] = "";
-    medicActionPhp.action = "../TrabFinalPPI/Restrito/cadastroMedico.php";
-  } else {
-    inputEspecialidade.required = false;
-    inputCrm.required = false;
-    medicForms.style["display"] = "none";
-    medicActionPhp.action = "../TrabFinalPPI/Restrito/cadastroFuncionario.php";
-  }
-}
-  </script>
-
 </html>

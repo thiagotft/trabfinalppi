@@ -44,7 +44,7 @@ if ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
 
     if (password_verify($password, $storedHash)) {
 
-	header ("Location: ../../Restrito/index.html");
+	header ("Location: ../../Restrito/index.php");
 
     } else {
 	header ("Location: ../../Publico/login.html");
