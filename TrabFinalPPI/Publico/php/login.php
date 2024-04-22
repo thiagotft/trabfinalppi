@@ -11,7 +11,7 @@ $email = $_POST['email'];
 $password = $_POST['password'];
 
 
-$_SESSION['email']= $email
+$_SESSION['email']= $email;
 $_SESSION['passoword'] = $password;
 
 
