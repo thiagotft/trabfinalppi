@@ -20,7 +20,8 @@ $pdo = getConnection();
 <body>
     <div id="header"></div>
 
-    <div id="conteudo">
+    <div class="container col-md-8">
+    <h1 class="text-primary text-center text-uppercase pt-4">Cadastro de funcionários</h1>
     <form
         action="../Restrito/cadastraFuncionario.php"
         method="POST"

@@ -76,7 +76,9 @@ $stmt->execute([':email' => $email]);
 
         <div class="table-responsive">
         <table class="table table-striped table-info table-hover">
-
+        <caption>
+        Lista de consultas do médico logado
+      </caption>
 
 
             <thead>

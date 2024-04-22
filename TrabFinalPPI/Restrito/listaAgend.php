@@ -34,7 +34,9 @@ try {
         </h2>
         <div class="table-responsive">
         <table class="table table-striped table-info table-hover">
-
+        <caption>
+        Lista de todos os agendamentos 
+      </caption>
             <thead>
                 <tr>
                   <th scope="col">#</th>
